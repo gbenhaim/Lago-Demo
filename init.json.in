@@ -9,7 +9,7 @@
             ],
             "disks": [
                 {
-                    "template_name": "centos7_hostvirsh",
+                    "template_name": "centos7_host",
                     "type": "template",
                     "name": "root",
                     "dev": "vda",
@@ -17,7 +17,6 @@
                 }
             ],
             "metadata": {
-                "ovirt-engine-password": "123",
                 "ovirt-role": "server",
                 "ovirt-scripts": [
                     "../deployment-scripts/server-deploy-script.sh"
