@@ -1,0 +1,85 @@
+{
+    "domains": {
+        "server": {
+            "memory": "4096",
+            "nics": [
+                {
+                    "net": "lago"
+                }
+            ],
+            "disks": [
+                {
+                    "template_name": "centos7_hostvirsh",
+                    "type": "template",
+                    "name": "root",
+                    "dev": "vda",
+                    "format": "qcow2"
+                }
+            ],
+            "metadata": {
+                "ovirt-engine-password": "123",
+                "ovirt-role": "server",
+                "ovirt-scripts": [
+                    "../deployment-scripts/server-deploy-script.sh"
+                ]
+            }
+        },
+
+        "host1": {
+            "memory": "2047",
+            "nics": [
+                {
+                    "net": "lago"
+                }
+            ],
+            "disks": [
+                {
+                    "template_name": "centos7_host",
+                    "type": "template",
+                    "name": "root",
+                    "dev": "vda",
+                    "format": "qcow2"
+                }
+            ],
+            "metadata": {
+                "ovirt-role": "host",
+                "ovirt-scripts": [
+                    "../deployment-scripts/host1-deploy-script.sh"
+                ]
+            }
+        },
+        "host0": {
+            "memory": "2047",
+            "nics": [
+                {
+                    "net": "lago"
+                }
+            ],
+            "disks": [
+                {
+                    "template_name": "centos7_host",
+                    "type": "template",
+                    "name": "root",
+                    "dev": "vda",
+                    "format": "qcow2"
+                }
+            ],
+            "metadata": {
+                "ovirt-role": "host",
+                "ovirt-scripts": [
+                    "../deployment-scripts/host0-deploy-script.sh"
+                ]
+            }
+        }
+    },
+    "nets": {
+        "lago": {
+            "type": "nat",
+            "dhcp": {
+                "start": 100,
+                "end": 254
+            },
+            "management": true
+        }
+    }
+}
