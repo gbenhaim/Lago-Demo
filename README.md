@@ -9,7 +9,7 @@ This tutorial will be “hands on”, and will take you through the process of c
 
 Lago environments are flexible and can be used for all different kinds of tasks. For keeping things simple I will focus on one scenario, although you will get the ability to create your own custom environment.
 We will use only the basic mandatory commands of Lago, for further reading please advise: 
-[Lagos Hompage](http://lago.readthedocs.org/en/latest/index.html)
+[Lago Hompage](http://lago.readthedocs.org/en/latest/index.html)
 
 #### Prerequisites:
 
@@ -22,9 +22,9 @@ Create a Lago environment which will consist of three virtual machines that will
 
 #### The VMs:
 
-* host0 – Jenkins slave.
-* host1 – Jenkins slave
-* server – Jenkins server.
+*  "vm0-server" - Junkins server
+*  "vm1-slave" - Junkins slave
+*  "vm2-slave" - Junkins slave
 
 #### The network:
 
@@ -40,11 +40,12 @@ https://github.com/gbenhaim/lago-tutorial
 
 * init.json.in – This is the file which describes the structure of our environment: the specification of the vms, networks, the path and name of the deployment scripts for each vm.
 
-* presets -  This directory contains presets for common enviornments.
+* presets -  This directory contains default configuration files for common enviornments.
 
 * templates-repo – This directory contains .json files which specify the template repository that should be used. (The templates repository is the place from which the base “qcow2” virtual disks will be copied from).
 
-* deployment-scripts – This directory contains the deployment scripts for each vm.
+* deployment-scripts – This directory contains the deployment scripts for each vm (in our case a script that will
+install the jenkins server)
 
 #### Editing init.json.in
 
