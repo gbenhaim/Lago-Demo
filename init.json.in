@@ -1,6 +1,6 @@
 {
     "domains": {
-        "server": {
+        "vm0-server": {
             "memory": "4096",
             "nics": [
                 {
@@ -24,7 +24,7 @@
             }
         },
 
-        "host1": {
+        "vm1-slave": {
             "memory": "2047",
             "nics": [
                 {
@@ -47,7 +47,7 @@
                 ]
             }
         },
-        "host0": {
+        "vm2-slave": {
             "memory": "2047",
             "nics": [
                 {
