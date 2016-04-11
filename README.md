@@ -113,11 +113,18 @@ In order to send a shutdown signal to the machines we will use:
 lago stop
 ```
 
-And for a specific vm named "server":
+Or for a specific vm named "server":
 
 ```
 lago stop server
 ```
 
+### Removing the enviornment
 
+The following command will remove all the files
+that relates to the environment.
+
+```
+lago destroy
+```
 
