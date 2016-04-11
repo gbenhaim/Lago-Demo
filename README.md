@@ -58,31 +58,38 @@ The init.json.in is where we need to describe our environment e.g vms and networ
 From within the repo run:
 
 ```
-lago init --template-repo-path=templates-repo/office.json lago-work-dir init.json.in
+lago init --template-repo-path=templates-repo/template-repo.json lago-work-dir init.json.in
 ```
+This directory /lago-work-dir will cotain the files of our new Lago enviroment.
+This directory shouldn't exist before invoking lago init.
+
 
 #### Deploy the VMs
 
 cd into /lago-work-dir.
-This command will turn on the vms:
+From now on, each command that relates to the the environment,
+should be run from within it.
+
+Now, lets start the vms:
+
 ```
 lago start
 ```
-And for a specific vm named "server":
+Or for a specific vm named "server":
 
 ```
 lago start server
 ```
 
 This command will run the deployment scripts (from within the vms) that were specified
-in the init.json file:
+in the init.json.in file:
 ```
 lago ovirt deploy
 ```
 
 ### Interacting with the VMs
 
-Lago allows you to connect to the vms with ssh.
+Lago allows you to connect to the vms via ssh.
 for exmaple, if we have a vm named "server" we will use the following:
 
 ```
