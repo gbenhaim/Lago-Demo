@@ -108,17 +108,16 @@ lago shell server
 If the deployment scripts run successfuly we don't have 
 to connect to the machines.
 
-### Adding the Junkins host
+### Adding the Junkins slaves
 
 Open your browser and enter to the Jenkins web UI.
-
-The address should be like: put-your-server-ip-here:8080
+The address should be like: "put-your-server-ip-here:8080"
 In the UI do the following:
 
 * Go to Manage jenkins >> Manage nodes
 * Click on: New node
-* Enter a name for the new slave (you can pick whatever name you like) and mark "Dumb Slave", now hit ok
-* Enter "/jenkins" in "Remoote Root Directory" (This is were Jenkins will place his file in the slave)
+* Enter a name for the new slave (you can pick whatever name you like) and mark "Dumb Slave", now hit OK
+* Enter "/jenkins" in "Remoote Root Directory" (This is were Jenkins will place his files in the slave)
 * Enter the slave's ip in "Host"
 * Near the "Credentials" label, click on "add"
 * Enter: Username = "root", Password = "123456" - this is the root password of the vms. for more information
