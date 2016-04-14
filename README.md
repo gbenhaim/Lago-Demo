@@ -61,14 +61,14 @@ From within the repo run:
 ```
 lago init --template-repo-path=templates-repo/template-repo.json lago-work-dir init.json.in
 ```
-This directory /lago-work-dir will cotain the files of our new Lago enviroment.
+This directory /lago-work-dir will contain the files of our new Lago environment.
 This directory shouldn't exist before invoking lago init.
 
 
 #### Deploy the VMs
 
 cd into /lago-work-dir.
-From now on, each command that relates to the the environment,
+From now on, each command that relates to the environment,
 should be run from within it.
 
 Now, lets start the vms:
@@ -83,10 +83,26 @@ lago start server
 ```
 
 This command will run the deployment scripts (from within the vms) that were specified
-in the init.json.in file:
+in the init.json.in file.
+
+
+
 ```
 lago ovirt deploy
 ```
+
+Jenkins will be installed on the server.
+OpenJDK will be installed on the slaves.
+
+### Getting the state of the environment
+
+You cae get information about the state of the enviorment with:
+
+```
+lago status
+```
+You can write down to yourself the ip adresses of the server and slaves,
+as we will need them when configuring the server.
 
 ### Interacting with the VMs
 
@@ -96,14 +112,26 @@ for exmaple, if we have a vm named "server" we will use the following:
 ```
 lago shell server
 ```
+If the deployment scripts run successfuly we don't have 
+to connect to the machines.
 
-### Getting the state of the environment
 
-You cae get information about the state of the enviorment with:
+### Adding the Junkins host
 
-```
-lago status
-```
+Open your browser and enter to the Jenkins web UI.
+
+The address should be like: put-your-server-ip-here:8080
+In the UI do the following:
+
+* Go to Manage jenkins >> Manage nodes
+* Click on: New node
+* Enter a name for the new slave (you can pick whatever name you like) and mark "Dumb Slave", now hit ok
+* Enter "/jenkins" in "Remoote Root Directory" (This is were Jenkins will place his file in the slave)
+* Enter the slave's ip in "Host"
+* Near the "Credentials" label, click on "add"
+* Enter Username = "root", Password = "123456" - this is the root password of the vms. check the advanced options
+  of Lago in order to learn of to change it.
+
 
 ### Shutdown the environment
 
@@ -127,4 +155,6 @@ that relates to the environment.
 ```
 lago destroy
 ```
+
+
 
