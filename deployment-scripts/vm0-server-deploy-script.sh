@@ -1,7 +1,9 @@
 
 #!/bin/bash
 yum install -y java-1.8.0-openjdk-devel.x86_64 \
-  wget
+  wget \
+  net-tools.x86_64
+
 
 wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
 rpm --import http://pkg.jenkins-ci.org/redhat-stable/jenkins-ci.org.key
@@ -22,5 +24,3 @@ service jenkins start
 
 chkconfig jenkins on
 
-# additional tools
-#yum install net-tools.x86_64
