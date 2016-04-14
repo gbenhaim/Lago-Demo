@@ -15,7 +15,6 @@ We will use only the basic mandatory commands of Lago, for further reading pleas
 
 Install Lago - follow [this](http://lago.readthedocs.org/en/latest/README.html) tutorial for more information
 
-
 #### The scenario:
 
 Create a Lago environment which will consist of three virtual machines that will host Jenkins infrastructure.
@@ -53,7 +52,6 @@ The init.json.in is where we need to describe our environment e.g vms and networ
 
 //TODO: elaborate about the different features and values that can be specified within the file.
 
-
 #### Creating The Environment
 
 From within the repo run:
@@ -63,7 +61,6 @@ lago init --template-repo-path=templates-repo/template-repo.json lago-work-dir i
 ```
 This directory /lago-work-dir will contain the files of our new Lago environment.
 This directory shouldn't exist before invoking lago init.
-
 
 #### Deploy the VMs
 
@@ -81,16 +78,12 @@ Or for a specific vm named "server":
 ```
 lago start server
 ```
-
 This command will run the deployment scripts (from within the vms) that were specified
 in the init.json.in file.
-
-
 
 ```
 lago ovirt deploy
 ```
-
 Jenkins will be installed on the server.
 OpenJDK will be installed on the slaves.
 
@@ -115,7 +108,6 @@ lago shell server
 If the deployment scripts run successfuly we don't have 
 to connect to the machines.
 
-
 ### Adding the Junkins host
 
 Open your browser and enter to the Jenkins web UI.
@@ -129,9 +121,12 @@ In the UI do the following:
 * Enter "/jenkins" in "Remoote Root Directory" (This is were Jenkins will place his file in the slave)
 * Enter the slave's ip in "Host"
 * Near the "Credentials" label, click on "add"
-* Enter Username = "root", Password = "123456" - this is the root password of the vms. check the advanced options
-  of Lago in order to learn of to change it.
+* Enter: Username = "root", Password = "123456" - this is the root password of the vms. for more information
+  about configuring the root password with Lago, check out [Lago's website](http://lago.readthedocs.org/en/latest/README.html)
+* hit the "Save" button
+* Repeat the process for the other slave.
 
+Your server is now configured with the new slaves.
 
 ### Shutdown the environment
 
@@ -140,7 +135,6 @@ In order to send a shutdown signal to the machines we will use:
 ```
 lago stop
 ```
-
 Or for a specific vm named "server":
 
 ```
@@ -155,6 +149,17 @@ that relates to the environment.
 ```
 lago destroy
 ```
+
+### Summery
+
+This was a basic introduction on how to use Lago.
+For further reading, or contributing the the project, please check the following links:
+
+[Lago on github](https://github.com/lago-project/lago/)
+
+[Lago's website](http://lago.readthedocs.org/en/latest/index.html)
+
+
 
 
 
