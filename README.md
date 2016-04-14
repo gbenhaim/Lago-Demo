@@ -152,7 +152,7 @@ lago destroy
 ### Summery
 
 This was a basic introduction on how to use Lago.
-For further reading, or contributing the the project, please check the following links:
+For further reading, or contributing to the project, please check the following links:
 
 [Lago on github](https://github.com/lago-project/lago/)
 
