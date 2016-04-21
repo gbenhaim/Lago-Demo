@@ -41,8 +41,8 @@ https://github.com/gbenhaim/lago-tutorial
 
 * init.json – This is the file which describes the structure of our environment: the specification of the vms, networks, the path and name of the deployment scripts for each vm.
 
-* presets -  This directory contains default configuration files for common enviornments.
-# ^^ this looks like the same as init.json in the root of the repo
+* presets -  This directory will contain default configuration files for common enviornments - you are welcome 
+to conribute your on files :)
 
 * templates-repo – This directory contains .json files which specify the template repository that should be used. (The templates repository is the place from which the base “qcow2” virtual disks will be copied from).
 By default Lago will use the file from: [http://templates.ovirt.org/repo/repo.metadata]
