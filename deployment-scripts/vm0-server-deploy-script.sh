@@ -1,5 +1,4 @@
-
-#!/bin/bash
+#!/bin/bash -xe
 yum install -y java-1.8.0-openjdk-devel.x86_64 \
   wget \
   net-tools.x86_64
