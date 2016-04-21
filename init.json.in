@@ -2,6 +2,8 @@
     "domains": {
         "vm0-server": {
             "memory": "4096",
+            # This might be too much memory? it's not meant to actually run
+            # anything besides the demo right?
             "nics": [
                 {
                     "net": "lago"
@@ -26,6 +28,7 @@
 
         "vm1-slave": {
             "memory": "2047",
+            # same here
             "nics": [
                 {
                     "net": "lago"
@@ -42,7 +45,9 @@
             ],
             "metadata": {
                 "ovirt-role": "host",
+                # no need for ovirt roles
                 "ovirt-scripts": [
+                # use deploy-scripts, more generic
                     "../deployment-scripts/vm1-slave-deploy-script.sh"
                 ]
             }

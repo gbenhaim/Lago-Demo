@@ -21,13 +21,15 @@ Create a Lago environment which will consist of three virtual machines that will
 
 #### The VMs:
 
-*  "vm0-server" - Junkins server
-*  "vm1-slave" - Junkins slave
-*  "vm2-slave" - Junkins slave
+*  "vm0-server" - Jenkins server
+*  "vm1-slave" - Jenkins slave
+*  "vm2-slave" - Jenkins slave
 
 #### The network:
 
 All the VMs will connect to the same virtual network .
+# add some explanation of the network that will be used, that it's a range on
+# 192.168.20x.x and such
 
 #### Creating the working directory:
 
@@ -37,11 +39,15 @@ https://github.com/gbenhaim/lago-tutorial
 
 #### What is in the repository?
 
-* init.json.in – This is the file which describes the structure of our environment: the specification of the vms, networks, the path and name of the deployment scripts for each vm.
+* init.json – This is the file which describes the structure of our environment: the specification of the vms, networks, the path and name of the deployment scripts for each vm.
 
 * presets -  This directory contains default configuration files for common enviornments.
+# ^^ this looks like the same as init.json in the root of the repo
 
 * templates-repo – This directory contains .json files which specify the template repository that should be used. (The templates repository is the place from which the base “qcow2” virtual disks will be copied from).
+# add also, that it's a special case, and by default it will use the file from
+# http://templates.ovirt.org/repo/repo.metadata, and that you can specify urls
+# also as --template-repo-path
 
 * deployment-scripts – This directory contains the deployment scripts for each vm (in our case a script that will
 install the jenkins server)
@@ -61,12 +67,25 @@ lago init --template-repo-path=templates-repo/template-repo.json lago-work-dir i
 ```
 This directory /lago-work-dir will contain the files of our new Lago environment.
 This directory shouldn't exist before invoking lago init.
+# if using the LagoInitFile, the default lago workdir (.lago), and the default
+# repo, you can run instead:
+#     lago init
+
 
 #### Deploy the VMs
 
 cd into /lago-work-dir.
+# If you used the default workdir path, you can skip the above cd (careful with
+# the relative script paths though
 From now on, each command that relates to the environment,
 should be run from within it.
+# with the default workdir you can run from it's parent, or any 'sibiling', for
+# example:
+#    lago init
+#    mkdir lolo
+#    cd lolo
+#    lago status
+#
 
 Now, lets start the vms:
 
@@ -78,9 +97,9 @@ Or for a specific vm named "server":
 ```
 lago start server
 ```
-This command will run the deployment scripts (from within the vms) that were specified
-in the init.json.in file.
 
+The command below will run the deployment scripts (from within the vms) that were specified
+in the init.json.in file.
 ```
 lago ovirt deploy
 ```
@@ -97,6 +116,9 @@ lago status
 You can write down to yourself the ip adresses of the server and slaves,
 as we will need them when configuring the server.
 
+# add also that you can extract the info formatted with json or yaml (check the
+# --out-format option)
+
 ### Interacting with the VMs
 
 Lago allows you to connect to the vms via ssh.
@@ -108,7 +130,10 @@ lago shell server
 If the deployment scripts run successfuly we don't have 
 to connect to the machines.
 
-### Adding the Junkins slaves
+# Add also the lago console command, is useful when the vm failed to boot, to
+# see the boot process or troubleshoot network issues
+
+### Adding the Jenkins slaves
 
 Open your browser and enter to the Jenkins web UI.
 The address should be like: "put-your-server-ip-here:8080"
@@ -125,11 +150,18 @@ In the UI do the following:
 * hit the "Save" button
 * Repeat the process for the other slave.
 
+# a future improvement might be to autoadd the slave from jenkins cli or
+# similar from the deploy scripts (though not sure how complicated that might
+# be, as the deploy command does run all of it in parallel based on the vm)
+
 Your server is now configured with the new slaves.
 
 ### Shutdown the environment
 
 In order to send a shutdown signal to the machines we will use:
+# I don't think it does a real shutdown, iirc it hard-destroys the vms, might
+# be a good idea though to add a lago command to soft-shutdown the vms, or even
+# reboot.
 
 ```
 lago stop
@@ -149,7 +181,7 @@ that relates to the environment.
 lago destroy
 ```
 
-### Summery
+### Summary
 
 This was a basic introduction on how to use Lago.
 For further reading, or contributing to the project, please check the following links:
