@@ -9,7 +9,7 @@
             ],
             "disks": [
                 {
-                    "template_name": "centos7_host",
+                    "template_name": "el7-base",
                     "type": "template",
                     "name": "root",
                     "dev": "vda",
@@ -33,7 +33,7 @@
             ],
             "disks": [
                 {
-                    "template_name": "centos7_host",
+                    "template_name": "el7-base",
                     "type": "template",
                     "name": "root",
                     "dev": "vda",
@@ -56,7 +56,7 @@
             ],
             "disks": [
                 {
-                    "template_name": "centos7_host",
+                    "template_name": "fc23-base",
                     "type": "template",
                     "name": "root",
                     "dev": "vda",
