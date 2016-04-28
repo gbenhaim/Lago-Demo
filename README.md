@@ -41,7 +41,7 @@ https://github.com/gbenhaim/lago-tutorial
 
 * init.json – This is the file which describes the structure of our environment: the specification of the vms, networks, the path and name of the deployment scripts for each vm.
 
-* presets -  This directory will contain default configuration files for common enviornments - you are welcome 
+* scenarios -  This directory will contain default configuration files for common enviornments - you are welcome 
 to conribute your on files :)
 
 * templates-repo – This directory contains .json files which specify the template repository that should be used. (The templates repository is the place from which the base “qcow2” virtual disks will be copied from).
@@ -64,9 +64,9 @@ We can use two different approches:
 Manual Configurations:
 
 ```
-lago init --template-repo-path=templates-repo/template-repo.json lago-work-dir init.json
+lago init --template-repo-path=../../templates-repo/template-repo.json lago-work-dir init.json
 ```
-(This should be invoked from within the repo)
+(This should be invoked from: /lago-tutorial/scenarios/jenkins)
 
 * The directory /lago-work-dir will contain the files of our new Lago environment.
 This directory shouldn't exist before invoking lago init.
@@ -111,13 +111,13 @@ lago start server
 ```
 
 The command below will run the deployment scripts (from within the vms) that were specified in the init.json file.
-This command should be invoked from the directory that will satisfied the relative path to the deployment scripts
+This command should be invoked from the directory that will satisfy the relative path to the deployment scripts,
 as mentiod in the init.json file.
 
 so, if you used the "manual configurations", the command should be invoked from /lago-work-dir.
 
 ```
-lago ovirt deploy
+lago deploy
 ```
 Jenkins will be installed on the server.
 OpenJDK will be installed on the slaves.
