@@ -88,8 +88,7 @@ If you are using the Auto configuration, or give any other name to the workdir, 
 
 #### Deploy the VMs
 
-When using the manual configurations all the commands should be invoked from /lago-work-dir or one of
-it's sub-directories.
+When using the manual configurations all the commands should be invoked from /lago-work-dir.
 
 When using the default workdir you can invoke commands from it's parent, or any 'sibiling', for example:
 ```
