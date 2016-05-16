@@ -57,9 +57,10 @@ From within the cloned repository, run the following commands:
 Optional commands:
    
 ::
+
     lago shell vm0-server
     
-    Opens a shell to vm0-server (for any other vm, just replace 'vm0-server' with the name of the machine)
+- Opens a shell to vm0-server (for any other vm, just replace 'vm0-server' with the name of the machine)
 
 ::
 
