@@ -1,11 +1,11 @@
-Jenkins master and slaves scenario
+Lago Demo
 ====================================
 
 About
 ^^^^^^
 
-We will create a Lago environment which will consist of three virtual machines
-that will host Jenkins infrastructure.
+In this demo we will learn how to set up a basic environment with Lago.
+The environment will consist of three virtual machines that will host Jenkins infrastructure.
 
 The VMs
 ^^^^^^^
@@ -14,8 +14,25 @@ The VMs
 -  "vm1-slave" - Jenkins slave
 -  "vm2-slave" - Jenkins slave
 
-The commands
+The network
+^^^^^^^^^^^^
+
+The vms will be connected to the same network, There will be also connectivity between the vms host and the internet.
+
+Prerequisite
+^^^^^^^^^^^^^
+
+- `Install Lago <http://lago.readthedocs.io/en/latest/README.html#installation>`__ 
+- Clone this repository to your machine.
+
+::
+
+    git clone https://github.com/gbenhaim/lago-tutorial.git
+
+Let's start !
 ^^^^^^^^^^^^^^
+
+From within the cloned repository, run the following commands:
 
 ::
 
@@ -36,32 +53,34 @@ The commands
 -   Installing the vms:
    -  Jenkins will be installed on the server.
    -  OpenJDK will be installed on the slaves.
+   
+Optional commands:
+   
+::
+    lago shell vm0-server
+    
+    Opens a shell to vm0-server (for any other vm, just replace 'vm0-server' with the name of the machine)
 
 ::
 
     lago status
     
--  Getting the ips of the vms, as we will need them for addign the slaves to the server.
+- Prints some usefull information about the environment.
+
+::
+
+    lago stop
     
+- Turns off the vms.
 
-Adding the slaves
-^^^^^^^^^^^^^^^^^^
+::
 
-Open your browser and enter to the Jenkins web UI.
-The address should be like: "put-your-server-ip-here:8080"
-In the UI do the following:
+    lago destroy
+    
+- Will delete the vms.
 
--  Go to Manage Jenkins >> Manage nodes
--  Click on: New node
--  Enter a name for the new slave (you can pick whatever name you like)
-   and mark "Dumb Slave", now hit OK
--  Enter "/jenkins" in "Remoote Root Directory" (This is were Jenkins
-   will place his files in the slave)
--  Enter the slave's ip in "Host"
--  Near the "Credentials" label, click on "add"
--  Enter: Username = "root", Password = "123456" - this is the root password of the vms. for more information about configuring the root password with Lago, check out
-   `Lago's website <http://lago.readthedocs.org/en/latest/README.html>`__
--  hit the "Save" button
--  Repeat the process for the other slave.
+Advanced stuff
+^^^^^^^^^^^^^^^
 
-Your server is now configured with the new slaves.
+For more advanced stuff please check out `this <http://lago.readthedocs.io/en/latest/index.html>`__ tutorial
+
