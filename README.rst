@@ -34,52 +34,68 @@ Let's start !
 
 From within the cloned repository, run the following commands:
 
+-  Create the environment.
+
 ::
 
     lago init
     
--  Create the environment.
+-  Start the vms.
     
 ::
 
     lago start
     
--  Start the vms.
+-   Installing the vms:
+   -  Jenkins will be installed on the server.
+   -  OpenJDK will be installed on the slaves.
 
 ::
 
     lago deploy
+    
+The environment is ready! 
+Now you can open your favorite browser, enter "vm0-server-ip-adress:8080" and the jenkins dashboard will be opened.
+How to figure out what is the ip of "vm0-server" ?
+Check out the following commands:
 
--   Installing the vms:
-   -  Jenkins will be installed on the server.
-   -  OpenJDK will be installed on the slaves.
-   
-Optional commands:
+- Open a shell to vm0-server (for any other vm, just replace 'vm0-server' with the name of the machine)
    
 ::
 
     lago shell vm0-server
     
-- Opens a shell to vm0-server (for any other vm, just replace 'vm0-server' with the name of the machine)
-
+- Print some usefull information about the environment.
+    
 ::
 
     lago status
     
-- Prints some usefull information about the environment.
-
+When you done with the enviroment:
+    
+- Turn off the vms.    
+    
 ::
 
     lago stop
+
+
+ 
+Note: 
+ To turn on the vms, use::
+
+::
     
-- Turns off the vms.
+    lago start
+    
+And if you will not have a need for the environment in the future:
+    
+- Delete the vms.
 
 ::
 
     lago destroy
     
-- Will delete the vms.
-
 Advanced stuff
 ^^^^^^^^^^^^^^^
 
