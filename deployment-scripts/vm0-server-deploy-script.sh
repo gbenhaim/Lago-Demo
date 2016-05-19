@@ -19,7 +19,6 @@ firewall-cmd --reload
 
 # start jenkins service
 
-service jenkins start
+systemctl start jenkins
 
 chkconfig jenkins on
-
