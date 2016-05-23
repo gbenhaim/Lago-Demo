@@ -1,7 +1,8 @@
 #!/bin/bash -xe
-yum install -y java-1.8.0-openjdk-devel.x86_64 \
-  wget \
-  net-tools.x86_64
+yum install -y deltarpm \
+    java-1.8.0-openjdk-devel.x86_64 \
+    wget \
+    net-tools.x86_64
 
 
 wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
